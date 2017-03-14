@@ -30,6 +30,11 @@ mongoose.connect(mongoURI);
 //routes
 server.use(todoRouter);
 
+//set up the front end
+server.get('/', function(req, res){
+  res.sendFile('index.html', {root: __dirname + '/public/html'});
+});
+
 server.listen(port, function(){
   console.log('Now listening on port', port);
 })
