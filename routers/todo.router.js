@@ -2,7 +2,6 @@ var express = require('express');
 var Todo = require('../models/todo.model');
 var todoRouter = express.Router();
 
-
 //GET /todos
 todoRouter.get('/todos', function(req, res){
   Todo.find({}, function(err, documents){
@@ -78,3 +77,5 @@ todoRouter.delete('/todos/:id', function(req, res){
     }
   });
 });
+
+module.exports = todoRouter;

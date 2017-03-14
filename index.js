@@ -2,18 +2,17 @@ var express = require('express');
 var server = express();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-var todoRouter = express.Router();
-
+var todoRouter = require('./routers/todo.router');
 
 var port = process.env.PORT || 8080;
 var mongoURI = process.env.MONGOURI || require('./secrets').mongoURI;
 
-//connect to the database
-mongoose.connect(mongoURI);
-
 //middleware
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({extended: true}));
+
+//connect to the database
+mongoose.connect(mongoURI);
 
 //testing the database
 // var todo = new Todo({
