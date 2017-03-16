@@ -7,7 +7,12 @@ var todoRouter = require('./routers/todo.router');
 var port = process.env.PORT || 8080;
 var mongoURI = process.env.MONGOURI || require('./secrets').mongoURI;
 
+server.get('/', function(req, res){
+  res.sendFile('index.html', {root: __dirname + '/public/html'});
+});
+
 //middleware
+server.use(express.static(__dirname + '/public'));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({extended: true}));
 
@@ -30,10 +35,6 @@ mongoose.connect(mongoURI);
 //routes
 server.use(todoRouter);
 
-//set up the front end
-server.get('/', function(req, res){
-  res.sendFile('index.html', {root: __dirname + '/public/html'});
-});
 
 server.listen(port, function(){
   console.log('Now listening on port', port);
