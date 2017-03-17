@@ -2,15 +2,10 @@
   angular.module('MEANTodos') //getter syntax
     .controller('TodoController', TodoController);
 
-    TodoController.$inject = ['$scope'];
+    TodoController.$inject = ['$scope', 'TodoService'];
 
-    function TodoController($scope){
-      $scope.message = 'I work!';
-      $scope.greeting = 'Hello';
-      $scope.print = print;
+    function TodoController($scope, TodoService){
 
-      function print(something){
-        console.log(something);
-      }
+      
     }
 })()
