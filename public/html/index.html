@@ -14,7 +14,10 @@
     <hr>
     <button ng-click='getTodos()'>Get To Dos</button>
     <ul>
-      <li ng-repeat='todo in todos'>{{ todo.description }}</li>
+      <li ng-repeat='todo in todos'>
+        {{ todo.description }}
+        <button ng-click='deleteTodo(todo)'>&times;</button>
+      </li>
     </ul>
   </div>
 
