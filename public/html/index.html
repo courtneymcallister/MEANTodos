@@ -9,7 +9,9 @@
 <body>
 
   <div ng-controller='TodoController'>
-
+    <input type="text" ng-model='newTodo.description'>
+    <button ng-click='addTodo(newTodo)'>Add To Do</button>
+    <hr>
     <button ng-click='getTodos()'>Get To Dos</button>
     <ul>
       <li ng-repeat='todo in todos'>{{ todo.description }}</li>
