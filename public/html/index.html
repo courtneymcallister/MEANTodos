@@ -14,8 +14,15 @@
     <hr>
     <ul>
       <li ng-repeat='todo in todos'>
-        {{ todo.description }}
-        <button ng-click='deleteTodo(todo)'>&times;</button>
+        <div ng-hide='todo.edit'>
+          {{ todo.description }}
+          <button ng-click='edit(todo)'>Edit</button>
+          <button ng-click='deleteTodo(todo)'>&times;</button>
+        </div>
+        <div ng-show='todo.edit'>
+          <input type="text" ng-model='todo.description'>
+          <button ng-click='update(todo)'>Update</button>
+        </div>
       </li>
     </ul>
   </div>

@@ -44,7 +44,7 @@ router.post('/todos', function(req, res){
   });
 });
 router.put('/todos/:id', function(req, res){
-  Todo.findAndUpdate({_id: req.params.id}, req.body, function(err, document){
+  Todo.findOneAndUpdate({_id: req.params.id}, req.body, function(err, document){
     if(err){
       res.status(500).json({
         msg: err
