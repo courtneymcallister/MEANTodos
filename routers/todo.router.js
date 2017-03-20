@@ -52,7 +52,7 @@ router.put('/todos/:id', function(req, res){
     } else {
       res.status(200).json({
         msg: 'Successfully updated'
-      })
+      });
     }
   });
 });
