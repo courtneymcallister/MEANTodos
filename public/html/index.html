@@ -15,7 +15,8 @@
     <ul>
       <li ng-repeat='todo in todos'>
         <div ng-hide='todo.edit'>
-          {{ todo.description }}
+          <input type="checkbox" ng-model='todo.completed' ng-change='update(todo)'>
+          <span ng-class='{strikethrough: todo.completed}'>{{ todo.description }}</span>
           <button ng-click='edit(todo)'>Edit</button>
           <button ng-click='deleteTodo(todo)'>&times;</button>
         </div>

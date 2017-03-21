@@ -30,6 +30,7 @@
         console.log('updating...');
         todo.edit = false;
         TodoService.update(todo);
+        todo.complete = false;
       }
 
       function deleteTodo(todo){
